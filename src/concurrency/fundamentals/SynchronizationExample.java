@@ -5,13 +5,14 @@ import concurrency.ThreadColor;
 public class SynchronizationExample {
     public void mainFunction(){
         Countdown countdown = new Countdown();
-        
-        CountdownThread thread1 = new CountdownThread(countdown);
-        CountdownThread thread2 = new CountdownThread(countdown);
-        thread1.setName("Thread 1");
-        thread2.setName("Thread 2");
-        thread1.start();
-        thread2.start();
+
+        CountdownThread t1 = new CountdownThread(countdown);
+        t1.setName("Thread 1");
+        CountdownThread t2 = new CountdownThread(countdown);
+        t2.setName("Thread 2");
+
+        t1.start();
+        t2.start();
     }
 }
 
@@ -20,9 +21,9 @@ class Countdown{
     
     public void doCountdown(){
         String color;
-        switch(Thread.currentThread().getName()){
+        switch(Thread.currentThread().getName()) {
             case "Thread 1":
-                color = ThreadColor.ANSI_BLUE;
+                color = ThreadColor.ANSI_CYAN;
                 break;
             case "Thread 2":
                 color = ThreadColor.ANSI_PURPLE;
@@ -38,11 +39,11 @@ class Countdown{
          * RACE-CONDITION. Therefore we'll have to use variables which are shared
          * among both threads.
          */
-        synchronized (this){
-            for (int j = 0; j < 10; j++) {
-                System.out.println(color + Thread.currentThread().getName() + " : i="+j);
+//        synchronized (this){
+            for(i=10; i > 0; i--) {
+                System.out.println(color + Thread.currentThread().getName() + ": i =" + i);
             }
-        }
+//        }
     }
 }
 
