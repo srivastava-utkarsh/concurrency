@@ -22,8 +22,7 @@ public class Main {
     public static class Thingie {
         private Date lastAccess;
         
-        public synchronized void setLastAccess(Date date) {
-            this.lastAccess = date;
+        public static synchronized void setLastAccess(Date date) {
             for (int i = 0; i < 10; i++) {
                 System.out.println(Thread.currentThread().getName()+"  : i = "+i);
             }
