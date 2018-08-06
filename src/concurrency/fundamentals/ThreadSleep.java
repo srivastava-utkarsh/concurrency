@@ -26,3 +26,8 @@ public class ThreadSleep {
         System.out.println("Hello again from main thread");
     }
 }
+
+
+//public static void main(String[] args) {
+//    new ThreadSleep().mainFunction();
+//}

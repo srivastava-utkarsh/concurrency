@@ -1,11 +1,11 @@
 package concurrency;
 
-import concurrency.fundamentals.ThreadSleep;
+import concurrency.fundamentals.SynchronizationExample;
 
 public class Main {
 
     public static void main(String[] args) {
-        new ThreadSleep().mainFunction();
+        new SynchronizationExample().mainFunction();
     }
     
 }
