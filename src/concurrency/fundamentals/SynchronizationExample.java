@@ -31,19 +31,12 @@ class Countdown{
             default:
                 color = ThreadColor.ANSI_GREEN;
         }
-        /**
-         * IMP!!!
-         * 
-         * we cannot use method local variables here as they're stored on stack
-         * and each thread has it's own local copy of variables so there is no
-         * RACE-CONDITION. Therefore we'll have to use variables which are shared
-         * among both threads.
-         */
-//        synchronized (this){
+        
+        synchronized (this){
             for(i=10; i > 0; i--) {
                 System.out.println(color + Thread.currentThread().getName() + ": i =" + i);
             }
-//        }
+        }
     }
 }
 
