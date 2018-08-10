@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+* producer-consumer demo
+*/
 public class DeadLock {
     public void mainFunction(){
         Message message = new Message();
